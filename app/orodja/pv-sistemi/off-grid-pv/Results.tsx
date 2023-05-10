@@ -5,7 +5,13 @@ import { useContext } from "react";
 const Results = () => {
   const { offGrid } = useContext(ApiContext);
 
-  return !offGrid ? null : (
+  if (offGrid === undefined) return null;
+  /* const history = offGrid.outputs.histogram.map((v) => ({
+    name: "Banan",
+    value: String(v.CS_max),
+  })); */
+
+  return (
     <InfoCard
       data={[
         {
@@ -28,6 +34,7 @@ const Results = () => {
           name: "Percentage of days when the battery became full [%]",
           value: String(offGrid.outputs.totals.f_f),
         },
+        /* ...history, */
       ]}
     />
   );

@@ -28,7 +28,7 @@ const useCurrentPosition = () => {
           }
         },
         console.log,
-        { maximumAge: 3000, timeout: 5000, enableHighAccuracy: true }
+        { timeout: 5000 }
       );
     }
   }, [dispatch]);

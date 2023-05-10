@@ -59,7 +59,7 @@ export interface OffGridApiResponse {
         E_lost_d: number;
         f_f: number;
         f_e: number;
-      }[]
+      }
     ];
     totals: {
       d_total: number;
@@ -73,7 +73,7 @@ export interface OffGridApiResponse {
         CS_min: number;
         CS_max: number;
         f_CS: number;
-      }[]
+      }
     ];
   };
   meta: {};

@@ -10,6 +10,9 @@ dependencies:
   "@types/react-dom":
     specifier: 18.2.4
     version: 18.2.4
+  chart.js:
+    specifier: ^4.3.0
+    version: 4.3.0
   eslint:
     specifier: 8.40.0
     version: 8.40.0
@@ -257,6 +260,13 @@ packages:
     dependencies:
       "@jridgewell/resolve-uri": 3.1.0
       "@jridgewell/sourcemap-codec": 1.4.14
+
+  /@kurkle/color@0.3.2:
+    resolution:
+      {
+        integrity: sha512-fuscdXJ9G1qb7W8VdHi+IwRqij3lBkosAm4ydQtEmbY58OzHXqQhvlxqEkoz0yssNVn38bcpRWgA9PP+OGoisw==,
+      }
+    dev: false
 
   /@next/env@13.4.1:
     resolution:
@@ -1005,6 +1015,16 @@ packages:
       }
     engines: { node: ^12.17.0 || ^14.13 || >=16.0.0 }
     dev: true
+
+  /chart.js@4.3.0:
+    resolution:
+      {
+        integrity: sha512-ynG0E79xGfMaV2xAHdbhwiPLczxnNNnasrmPEXriXsPJGjmhOBYzFVEsB65w2qMDz+CaBJJuJD0inE/ab/h36g==,
+      }
+    engines: { pnpm: ">=7" }
+    dependencies:
+      "@kurkle/color": 0.3.2
+    dev: false
 
   /chokidar@3.5.3:
     resolution:
