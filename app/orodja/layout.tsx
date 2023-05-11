@@ -6,16 +6,17 @@ import {
   LocationDispatchContext,
 } from "@/components/Location/context";
 import { locationReducer } from "@/components/Location/reduser";
-import { OffGridApiResponse } from "../api/orodja/pv-sistemi/route";
+import { OffGridApiResponse } from "../api/orodja/pv-sistemi/off-grid/route";
+import { OnGridApiResponse } from "../api/orodja/pv-sistemi/on-grid/route";
 
 interface ApiContextState {
   offGrid?: OffGridApiResponse;
+  onGrid?: OnGridApiResponse;
 }
 
-type ApiContextAction = {
-  type: "SET_OFF_GRID";
-  payload: OffGridApiResponse;
-};
+type ApiContextAction =
+  | { type: "SET_OFF_GRID"; payload: OffGridApiResponse }
+  | { type: "SET_ON_GRID"; payload: OnGridApiResponse };
 
 const apiReducer = (
   state: ApiContextState,
@@ -24,6 +25,8 @@ const apiReducer = (
   switch (action.type) {
     case "SET_OFF_GRID":
       return { ...state, offGrid: action.payload };
+    case "SET_ON_GRID":
+      return { ...state, onGrid: action.payload };
     default:
       return state;
   }

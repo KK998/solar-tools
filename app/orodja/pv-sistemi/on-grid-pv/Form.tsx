@@ -2,35 +2,37 @@
 import { useCallback, useContext, useState } from "react";
 import { toast } from "react-toastify";
 
-import {
-  OffGridApiBody,
-  OffGridApiResponse,
-} from "@/app/api/orodja/pv-sistemi/off-grid/route";
-
 import { LocationContext } from "@/components/Location/context";
 import FormBuilder, { Field } from "@/components/Presentation/FormBuilder";
-import { ApiDispatchContext } from "../../layout";
 
-interface FormNames {
-  solarRadiationDatabase: string;
-  installedPeakPvPower: number;
-  batteryCapacity: number;
-  dischargeCutOffLimit: number;
-  consumptionPerDay: number;
-  slope: number;
-  azimuth: number;
-}
+import { ApiDispatchContext } from "../../layout";
+import {
+  OnGridApiBody,
+  OnGridApiResponse,
+} from "@/app/api/orodja/pv-sistemi/on-grid/route";
 
 interface FormField extends Field {
-  name: keyof FormNames;
+  name: keyof OnGridApiBody;
 }
 
 const formFields: FormField[] = [
   {
-    name: "solarRadiationDatabase",
+    name: "raddatabase",
     label: "Solar radiation database",
     type: "select",
     options: ["PVGIS-SARAH2", "PVGIS-SARAH", "PVGIS-ERA5"],
+  },
+  {
+    name: "mountingPosition",
+    label: "Mounting position",
+    type: "select",
+    options: ["Free-standing", "Roof added / building integrated"],
+  },
+  {
+    name: "pvtechnology",
+    label: "PV technology",
+    type: "select",
+    options: ["Crystalline silicon", "CIS", "CdTe", "Unknown"],
   },
   {
     name: "installedPeakPvPower",
@@ -38,39 +40,51 @@ const formFields: FormField[] = [
     type: "number",
   },
   {
-    name: "batteryCapacity",
-    label: "Battery capacity [Wh]",
+    name: "systemLoss",
+    label: "System loss [%]",
     type: "number",
   },
   {
-    name: "dischargeCutOffLimit",
-    label: "Discharge cut-off limit [%]",
-    type: "number",
-  },
-  {
-    name: "consumptionPerDay",
-    label: "Consumption per day [Wh]",
-    type: "number",
-  },
-  {
-    name: "slope",
+    name: "angle",
     label: "Slope [°]",
     type: "number",
   },
   {
-    name: "azimuth",
+    name: "aspect",
     label: "Azimuth [°]",
     type: "number",
   },
 ];
 
-const offGridApiCall = async (data: OffGridApiBody) => {
-  const response = await fetch("/api/orodja/pv-sistemi/off-grid", {
+const pvTechFormMapping = (value: string) => {
+  switch (value) {
+    case "Crystalline silicon":
+      return "crystSi";
+    case "CIS":
+      return "CIS";
+    case "CdTe":
+      return "CdTe";
+    default:
+      return "Unknown";
+  }
+};
+
+const mountingFormMapping = (value: string) => {
+  switch (value) {
+    case "Free-standing":
+      return "free";
+    default:
+      return "building";
+  }
+};
+
+const onGridApiCall = async (data: OnGridApiBody) => {
+  const response = await fetch("/api/orodja/pv-sistemi/on-grid", {
     method: "POST",
     body: JSON.stringify(data),
   });
   const json = await response.json();
-  return json.data as OffGridApiResponse;
+  return json.data as OnGridApiResponse;
 };
 
 const Form = () => {
@@ -87,19 +101,23 @@ const Form = () => {
         return;
       }
       const data = new FormData(e.target as HTMLFormElement);
-      offGridApiCall({
+      onGridApiCall({
         lat: marker[0],
         lon: marker[1],
         raddatabase: data.get("solarRadiationDatabase") as string,
-        peakpower: data.get("installedPeakPvPower") as unknown as number,
-        batterysize: data.get("batteryCapacity") as unknown as number,
-        cutoff: data.get("dischargeCutOffLimit") as unknown as number,
-        consumptionday: data.get("consumptionPerDay") as unknown as number,
+        pvtechnology: pvTechFormMapping(data.get("pvtechnology") as string),
+        mountingPosition: mountingFormMapping(
+          data.get("mountingPosition") as string
+        ),
+        systemLoss: parseFloat(data.get("systemLoss") as string),
+        installedPeakPvPower: parseFloat(
+          data.get("installedPeakPvPower") as string
+        ),
         angle: data.get("slope") as unknown as number,
         aspect: data.get("azimuth") as unknown as number,
       })
         .then((data) => {
-          if (dispatch) dispatch({ type: "SET_OFF_GRID", payload: data });
+          if (dispatch) dispatch({ type: "SET_ON_GRID", payload: data });
           toast.success("Uspešno pridobljeni podatki.");
         })
         .catch((error) => {
@@ -115,9 +133,9 @@ const Form = () => {
 
   return (
     <FormBuilder
-      formFields={formFields}
-      handleFormSubmit={handleFormSubmit}
       isLoading={isLoading}
+      handleFormSubmit={handleFormSubmit}
+      formFields={formFields}
     />
   );
 };
