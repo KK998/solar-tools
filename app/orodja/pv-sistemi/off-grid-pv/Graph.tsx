@@ -40,7 +40,7 @@ const Graph = ({ data }: { data: OffGridApiResponse }) => {
             }}
           />
         </Tabs.Item>
-        <Tabs.Item active title="Average energy production per day [Wh/d]">
+        <Tabs.Item title="Average energy production per day [Wh/d]">
           <Chart
             label="Off-grid PV system"
             type="bar"
@@ -57,10 +57,7 @@ const Graph = ({ data }: { data: OffGridApiResponse }) => {
             }}
           />
         </Tabs.Item>
-        <Tabs.Item
-          active
-          title="Percentage of days when the battery became empty [%]"
-        >
+        <Tabs.Item title="Percentage of days when the battery became empty [%]">
           <Chart
             label="Off-grid PV system"
             type="bar"
@@ -77,10 +74,7 @@ const Graph = ({ data }: { data: OffGridApiResponse }) => {
             }}
           />
         </Tabs.Item>
-        <Tabs.Item
-          active
-          title="Percentage of days when the battery became full [%]"
-        >
+        <Tabs.Item title="Percentage of days when the battery became full [%]">
           <Chart
             label="Off-grid PV system"
             type="bar"

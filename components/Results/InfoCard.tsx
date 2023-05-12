@@ -10,15 +10,18 @@ type InfoCardProps = {
 
 const InfoCard = ({ data }: InfoCardProps) => {
   return (
-    <Card className="flex-grow">
+    <Card className="flex-grow basis-1/3">
       <h5 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
         Izračuni
       </h5>
       {data && (
-        <ListGroup className="flex-grow mb-auto">
+        <ListGroup className="flex-grow mb-auto text-left">
           {data.map((item) => (
             <ListGroup.Item key={item.name}>
-              <span className="font-bold">{item.name}</span>: {item.value}
+              <div className="flex flex-col items-start text-left">
+                <span className="mb-1">{item.name}:</span>
+                <strong>{item.value}</strong>
+              </div>
             </ListGroup.Item>
           ))}
         </ListGroup>

@@ -21,12 +21,11 @@ const Chart = ({ type, data }: ChartProps) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
   useEffect(() => {
-    if (canvasRef.current) {
-      new C(canvasRef.current, {
-        type,
-        data,
-      });
-    }
+    const chart = new C(canvasRef.current!, {
+      type,
+      data,
+    });
+    return () => chart.destroy();
   }, [canvasRef, data, type]);
 
   return <canvas ref={canvasRef}></canvas>;

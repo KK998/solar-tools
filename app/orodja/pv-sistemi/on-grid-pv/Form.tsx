@@ -83,8 +83,7 @@ const onGridApiCall = async (data: OnGridApiBody) => {
     method: "POST",
     body: JSON.stringify(data),
   });
-  const json = await response.json();
-  return json.data as OnGridApiResponse;
+  return (await response.json()) as OnGridApiResponse;
 };
 
 const Form = () => {
@@ -104,7 +103,7 @@ const Form = () => {
       onGridApiCall({
         lat: marker[0],
         lon: marker[1],
-        raddatabase: data.get("solarRadiationDatabase") as string,
+        raddatabase: data.get("raddatabase") as string,
         pvtechnology: pvTechFormMapping(data.get("pvtechnology") as string),
         mountingPosition: mountingFormMapping(
           data.get("mountingPosition") as string
@@ -113,12 +112,14 @@ const Form = () => {
         installedPeakPvPower: parseFloat(
           data.get("installedPeakPvPower") as string
         ),
-        angle: data.get("slope") as unknown as number,
-        aspect: data.get("azimuth") as unknown as number,
+        angle: data.get("angle") as unknown as number,
+        aspect: data.get("aspect") as unknown as number,
       })
         .then((data) => {
-          if (dispatch) dispatch({ type: "SET_ON_GRID", payload: data });
-          toast.success("Uspešno pridobljeni podatki.");
+          if (dispatch) {
+            dispatch({ type: "SET_ON_GRID", payload: data });
+            toast.success("Uspešno pridobljeni podatki.");
+          }
         })
         .catch((error) => {
           console.log(error);

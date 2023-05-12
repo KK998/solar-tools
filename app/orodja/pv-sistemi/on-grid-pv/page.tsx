@@ -21,11 +21,11 @@ const Graph = dynamic(() => import("./Graph"), {
 });
 
 const Page = () => {
-  const { offGrid } = useContext(ApiContext);
+  const { onGrid } = useContext(ApiContext);
 
   const graphData = useMemo(() => {
-    return offGrid;
-  }, [offGrid]);
+    return onGrid;
+  }, [onGrid]);
 
   return (
     <>

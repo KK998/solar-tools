@@ -1,15 +1,14 @@
 "use client";
-
-import "./globals.css";
 import { Inter } from "next/font/google";
+import { Flowbite } from "flowbite-react";
+import { ToastContainer } from "react-toastify";
 
 import Footer from "@/app/Footer";
 import Header from "@/app/Header";
-import { Flowbite } from "flowbite-react";
 
 const inter = Inter({ subsets: ["latin"] });
 
-import { ToastContainer } from "react-toastify";
+import "./globals.css";
 import "react-toastify/dist/ReactToastify.css";
 
 export default function RootLayout({

@@ -24,7 +24,13 @@ type FormProps = {
 const Form = ({ handleFormSubmit, formFields, isLoading }: FormProps) => {
   return (
     <Card className="flex-grow">
-      <form onSubmit={handleFormSubmit} className="flex flex-col gap-4">
+      <h5 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+        Vnesite podatke
+      </h5>
+      <form
+        onSubmit={handleFormSubmit}
+        className="flex flex-col flex-grow gap-4"
+      >
         {formFields.map((field) =>
           field.type === "number" ? (
             <div key={field.name}>
@@ -53,7 +59,7 @@ const Form = ({ handleFormSubmit, formFields, isLoading }: FormProps) => {
             </div>
           )
         )}
-        <Button type="submit">
+        <Button type="submit" className="mt-auto">
           {isLoading && (
             <Spinner
               size="sm"

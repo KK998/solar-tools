@@ -1,43 +1,40 @@
 import InfoCard from "@/components/Results/InfoCard";
 import { ApiContext } from "../../layout";
 import { useContext } from "react";
+import {
+  OnGridApiKeys,
+  OnGridApiResponse,
+} from "@/app/api/orodja/pv-sistemi/on-grid/route";
+
+const createDataPoint = (
+  d: OnGridApiResponse,
+  key: keyof OnGridApiResponse["outputs"]["totals"]["fixed"]
+) => ({
+  name: OnGridApiKeys[key],
+  value: String(d.outputs.totals.fixed[key]),
+});
 
 const Results = () => {
-  const { offGrid } = useContext(ApiContext);
+  const { onGrid } = useContext(ApiContext);
 
-  if (offGrid === undefined) return null;
-  /* const history = offGrid.outputs.histogram.map((v) => ({
-    name: "Banan",
-    value: String(v.CS_max),
-  })); */
+  if (onGrid === undefined) return null;
 
-  return (
-    <InfoCard
-      data={[
-        {
-          name: "Average energy not captured per day [Wh/d]",
-          value: String(offGrid.outputs.totals.E_lost),
-        },
-        {
-          name: "Average energy missing per day [Wh/d]",
-          value: String(offGrid.outputs.totals.E_miss),
-        },
-        {
-          name: "Number of days used for the calculation [d]",
-          value: String(offGrid.outputs.totals.d_total),
-        },
-        {
-          name: "Percentage of days when the battery became empty [%]",
-          value: String(offGrid.outputs.totals.f_e),
-        },
-        {
-          name: "Percentage of days when the battery became full [%]",
-          value: String(offGrid.outputs.totals.f_f),
-        },
-        /* ...history, */
-      ]}
-    />
-  );
+  const keys: (keyof OnGridApiResponse["outputs"]["totals"]["fixed"])[] = [
+    "E_d",
+    "E_m",
+    "E_y",
+    "H(i)_d",
+    "H(i)_m",
+    "H(i)_y",
+    "SD_m",
+    "SD_y",
+    "l_aoi",
+    "l_spec",
+    "l_tg",
+    "l_total",
+  ];
+
+  return <InfoCard data={keys.map((key) => createDataPoint(onGrid, key))} />;
 };
 
 export default Results;
