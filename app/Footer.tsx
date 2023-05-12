@@ -7,7 +7,13 @@ import { ConfigContext } from "./config";
 export default function Component() {
   const { logo, name, mainPageUrl } = useContext(ConfigContext);
   return (
-    <Footer container className="mt-auto">
+    <Footer
+      container
+      className="mt-auto"
+      style={{
+        borderRadius: 0,
+      }}
+    >
       <div className="w-full text-center">
         <div className="w-full justify-between sm:flex sm:items-center sm:justify-between">
           <Footer.Brand name={name} href={mainPageUrl} src={logo} alt="Logo" />

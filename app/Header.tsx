@@ -1,19 +1,12 @@
 "use client";
 
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext } from "react";
 import Image from "next/image";
-import { Navbar, DarkThemeToggle } from "flowbite-react";
+import { Navbar } from "flowbite-react";
 import { ConfigContext } from "./config";
 
 const Header = () => {
   const { mainPageUrl, logo, name } = useContext(ConfigContext);
-
-  // need this because of nextjs retardation
-  const [loaded, setLoaded] = useState(false);
-  useEffect(() => {
-    setLoaded(true);
-  }, []);
-  // need this because of nextjs retardation
 
   return (
     <Navbar fluid className="sticky top-0 z-50 shadow">
@@ -32,7 +25,6 @@ const Header = () => {
         </span>
       </Navbar.Brand>
       <div className="flex md:order-2">
-        {loaded && <DarkThemeToggle /> /* NEXTJS RETARDATION */}
         <Navbar.Toggle />
       </div>
       <Navbar.Collapse>

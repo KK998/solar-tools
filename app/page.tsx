@@ -9,6 +9,7 @@ import Image from "next/image";
 
 const ToolsAddedTimeline = () => (
   <Card className="mt-10 container mx-auto">
+    <h2 className="text-3xl text-center font-bold my-4">Zgodovina spremeb</h2>
     <Timeline>
       <Timeline.Item>
         <Timeline.Point />
