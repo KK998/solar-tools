@@ -1,10 +1,13 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Image from "next/image";
 import { Navbar, DarkThemeToggle } from "flowbite-react";
+import { ConfigContext } from "./config";
 
 const Header = () => {
+  const { mainPageUrl, logo, name } = useContext(ConfigContext);
+
   // need this because of nextjs retardation
   const [loaded, setLoaded] = useState(false);
   useEffect(() => {
@@ -13,17 +16,19 @@ const Header = () => {
   // need this because of nextjs retardation
 
   return (
-    <Navbar fluid rounded>
-      <Navbar.Brand href="https://flowbite.com/">
+    <Navbar fluid className="sticky top-0 z-50 shadow">
+      <Navbar.Brand href={mainPageUrl}>
         <div className="mr-3 w-6 h-6 sm:h-9 relative">
           <Image
-            src="https://flowbite.com/docs/images/logo.svg"
-            alt="Flowbite Logo"
             fill
+            priority
+            src={logo}
+            alt={name}
+            className="object-contain"
           />
         </div>
         <span className="self-center whitespace-nowrap text-xl font-semibold dark:text-white">
-          Solar Orodja
+          {name}
         </span>
       </Navbar.Brand>
       <div className="flex md:order-2">
@@ -31,7 +36,7 @@ const Header = () => {
         <Navbar.Toggle />
       </div>
       <Navbar.Collapse>
-        <Navbar.Link href="/">Home</Navbar.Link>
+        <Navbar.Link href="/">Domov</Navbar.Link>
         <Navbar.Link href="/orodja/pv-sistemi/on-grid-pv">
           On-Grid PV
         </Navbar.Link>

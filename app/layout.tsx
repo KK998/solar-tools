@@ -10,22 +10,30 @@ const inter = Inter({ subsets: ["latin"] });
 
 import "./globals.css";
 import "react-toastify/dist/ReactToastify.css";
+import { ConfigContext, config } from "./config";
+import useDarkTheme from "@/components/Presentation/useDarkTheme";
 
 export default function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  const darkMode = useDarkTheme();
+
   return (
     <Flowbite>
-      <html lang="sl">
-        <body className={`${inter.className} min-h-[100vh] flex flex-col`}>
-          <Header />
-          {children}
-          <Footer />
-          <ToastContainer />
-        </body>
-      </html>
+      <ConfigContext.Provider value={config}>
+        <html lang="sl" className={darkMode ? "dark" : ""}>
+          <body
+            className={`${inter.className} dark:bg-slate-700 dark:text-white min-h-[100vh] flex flex-col`}
+          >
+            <Header />
+            {children}
+            <Footer />
+            <ToastContainer />
+          </body>
+        </html>
+      </ConfigContext.Provider>
     </Flowbite>
   );
 }

@@ -8,28 +8,24 @@ const useCurrentPosition = () => {
 
   useEffect(() => {
     if (window) {
-      window.navigator.geolocation.getCurrentPosition(
-        (position) => {
-          if (dispatch) {
-            dispatch({
-              type: "SET_MARKER",
-              payload: [position.coords.latitude, position.coords.longitude],
-            });
+      window.navigator.geolocation.getCurrentPosition((position) => {
+        if (dispatch) {
+          dispatch({
+            type: "SET_MARKER",
+            payload: [position.coords.latitude, position.coords.longitude],
+          });
 
-            getLocationAddress(
-              position.coords.latitude,
-              position.coords.longitude
-            ).then((data) => {
-              dispatch({
-                type: "SET_LOCATION",
-                payload: data,
-              });
+          getLocationAddress(
+            position.coords.latitude,
+            position.coords.longitude
+          ).then((data) => {
+            dispatch({
+              type: "SET_LOCATION",
+              payload: data,
             });
-          }
-        },
-        console.log,
-        { timeout: 10000 }
-      );
+          });
+        }
+      }, console.log);
     }
   }, [dispatch]);
 
