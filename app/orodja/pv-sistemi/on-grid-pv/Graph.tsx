@@ -2,11 +2,9 @@
 
 import { Card, Tabs } from "flowbite-react";
 import Chart from "@/components/Presentation/Chart";
-import {
-  OnGridApiKeys,
-  OnGridApiResponse,
-} from "@/app/api/orodja/pv-sistemi/on-grid/route";
+import { OnGridApiResponse } from "@/app/api/orodja/pv-sistemi/on-grid/route";
 import { ErrorBoundary } from "react-error-boundary";
+import { OnGridApiKeys } from "@/app/constants";
 
 const monthMapping = {
   1: "Januar",
