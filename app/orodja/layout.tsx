@@ -9,15 +9,18 @@ import { locationReducer } from "@/components/Location/reduser";
 import { OffGridApiResponse } from "../api/orodja/pv-sistemi/off-grid/route";
 import { OnGridApiResponse } from "../api/orodja/pv-sistemi/on-grid/route";
 import ActionRow from "@/components/Presentation/ActionRow";
+import { SevanjeApiResponse } from "../api/orodja/sevanje/route";
 
 interface ApiContextState {
   offGrid?: OffGridApiResponse;
   onGrid?: OnGridApiResponse;
+  sevanje?: SevanjeApiResponse;
 }
 
 type ApiContextAction =
   | { type: "SET_OFF_GRID"; payload: OffGridApiResponse }
-  | { type: "SET_ON_GRID"; payload: OnGridApiResponse };
+  | { type: "SET_ON_GRID"; payload: OnGridApiResponse }
+  | { type: "SET_SEVANJE"; payload: SevanjeApiResponse };
 
 const apiReducer = (
   state: ApiContextState,
@@ -28,6 +31,8 @@ const apiReducer = (
       return { ...state, offGrid: action.payload };
     case "SET_ON_GRID":
       return { ...state, onGrid: action.payload };
+    case "SET_SEVANJE":
+      return { ...state, sevanje: action.payload };
     default:
       return state;
   }
@@ -44,10 +49,8 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
     location: "",
     marker: [0, 0],
   });
-  const [api, apiDispatch] = useReducer(apiReducer, {
-    offGrid: undefined,
-    onGrid: undefined,
-  });
+
+  const [api, apiDispatch] = useReducer(apiReducer, {});
 
   return (
     <LocationContext.Provider value={location}>
@@ -55,7 +58,9 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
         <ApiContext.Provider value={api}>
           <ApiDispatchContext.Provider value={apiDispatch}>
             <div ref={printRef} className="flex flex-wrap gap-5 p-5">
-              {(api.offGrid || api.onGrid) && <ActionRow printRef={printRef} />}
+              {(api.offGrid || api.onGrid || api.sevanje) && (
+                <ActionRow printRef={printRef} />
+              )}
               {children}
             </div>
           </ApiDispatchContext.Provider>

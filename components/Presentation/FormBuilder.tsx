@@ -11,7 +11,7 @@ import React from "react";
 export interface Field {
   name: string;
   label: string;
-  type: "number" | "select";
+  type: "number" | "select" | "boolean";
   options?: string[];
 }
 
