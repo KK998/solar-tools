@@ -1,7 +1,7 @@
 "use client";
+import { ApiContext } from "@/services/context";
 import dynamic from "next/dynamic";
 import { useContext, useMemo } from "react";
-import { ApiContext } from "../../layout";
 
 const Map = dynamic(() => import("@/components/Location/Map"), {
   ssr: false,

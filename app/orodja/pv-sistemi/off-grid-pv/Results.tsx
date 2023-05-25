@@ -1,5 +1,5 @@
 import InfoCard from "@/components/Results/InfoCard";
-import { ApiContext } from "../../layout";
+import { ApiContext } from "@/services/context";
 import { useContext } from "react";
 
 const Results = () => {

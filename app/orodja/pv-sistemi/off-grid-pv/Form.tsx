@@ -9,7 +9,7 @@ import {
 
 import { LocationContext } from "@/components/Location/context";
 import FormBuilder, { Field } from "@/components/Presentation/FormBuilder";
-import { ApiDispatchContext } from "../../layout";
+import { ApiDispatchContext } from "@/services/context";
 
 interface FormNames {
   solarRadiationDatabase: string;
