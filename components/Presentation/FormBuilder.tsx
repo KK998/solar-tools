@@ -5,8 +5,9 @@ import {
   Select,
   Spinner,
   TextInput,
+  ToggleSwitch,
 } from "flowbite-react";
-import React from "react";
+import React, { useCallback, useState } from "react";
 
 export interface Field {
   name: string;
@@ -14,6 +15,62 @@ export interface Field {
   type: "number" | "select" | "boolean";
   options?: string[];
 }
+
+const FormToggle = ({ field }: { field: Field }) => {
+  const [isChecked, setIsChecked] = useState(false);
+  const toggleChecked = useCallback(() => setIsChecked((p) => !p), []);
+
+  return (
+    <>
+      <input
+        value={isChecked ? 1 : 0}
+        type="hidden"
+        id={field.name}
+        name={field.name}
+      />
+      <ToggleSwitch
+        checked={isChecked}
+        label={field.label}
+        onChange={toggleChecked}
+      />
+    </>
+  );
+};
+
+const FormField = ({ field }: { field: Field }) => {
+  switch (field.type) {
+    case "select":
+      return (
+        <div>
+          <div className="mb-2 block">
+            <Label htmlFor={field.name} value={field.label} />
+          </div>
+          <Select id={field.name} name={field.name} required>
+            {field.options?.map((option) => (
+              <option key={option} value={option}>
+                {option}
+              </option>
+            ))}
+          </Select>
+        </div>
+      );
+    case "boolean":
+      return (
+        <div className="mb-2 block">
+          <FormToggle field={field} />
+        </div>
+      );
+    default:
+      return (
+        <div>
+          <div className="mb-2 block">
+            <Label htmlFor={field.name} value={field.label} />
+          </div>
+          <TextInput id={field.name} name={field.name} type="number" required />
+        </div>
+      );
+  }
+};
 
 type FormProps = {
   handleFormSubmit: (e: React.FormEvent<HTMLFormElement>) => void;
@@ -31,34 +88,9 @@ const Form = ({ handleFormSubmit, formFields, isLoading }: FormProps) => {
         onSubmit={handleFormSubmit}
         className="flex flex-col flex-grow gap-4"
       >
-        {formFields.map((field) =>
-          field.type === "number" ? (
-            <div key={field.name}>
-              <div className="mb-2 block">
-                <Label htmlFor={field.name} value={field.label} />
-              </div>
-              <TextInput
-                id={field.name}
-                name={field.name}
-                type="number"
-                required
-              />
-            </div>
-          ) : (
-            <div key={field.name}>
-              <div className="mb-2 block">
-                <Label htmlFor={field.name} value={field.label} />
-              </div>
-              <Select id={field.name} name={field.name} required>
-                {field.options?.map((option) => (
-                  <option key={option} value={option}>
-                    {option}
-                  </option>
-                ))}
-              </Select>
-            </div>
-          )
-        )}
+        {formFields.map((field: Field) => (
+          <FormField key={field.name} field={field} />
+        ))}
         <Button type="submit" className="mt-auto">
           {isLoading && (
             <Spinner

@@ -15,7 +15,7 @@ interface FormField extends Field {
   name: keyof SevanjeApiBody;
 }
 
-const formFields: FormField[] = [
+export const formFields: FormField[] = [
   {
     name: "raddatabase",
     label: "Solar radiation database",
@@ -26,33 +26,33 @@ const formFields: FormField[] = [
     name: "startyear",
     label: "Start year",
     type: "select",
-    options: Array.from({ length: 15 }, (_, i) => `${2005 + i}`),
+    options: Array.from({ length: 18 }, (_, i) => `${2005 + i}`),
   },
   {
     name: "endyear",
     label: "End year",
     type: "select",
-    options: Array.from({ length: 15 }, (_, i) => `${2005 + i}`),
+    options: Array.from({ length: 18 }, (_, i) => `${2005 + i}`),
   },
   {
     name: "horirrad",
     label: "Global horizontal irradiation [kWh/m²]",
-    type: "number",
+    type: "boolean",
   },
   {
     name: "optrad",
     label: "Direct normal irradiation [kWh/m²]",
-    type: "number",
+    type: "boolean",
   },
   {
     name: "mr_dni",
     label: "Global irradiation optimum angle",
-    type: "number",
+    type: "boolean",
   },
   {
     name: "avtemp",
     label: "Average temperature",
-    type: "number",
+    type: "boolean",
   },
 ];
 
