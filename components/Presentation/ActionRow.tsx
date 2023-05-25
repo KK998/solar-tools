@@ -89,6 +89,10 @@ const ActionRow = ({
     }
   }, [offGrid, onGrid]);
 
+  if (!offGrid && !onGrid) {
+    return null;
+  }
+
   return (
     <div className="w-full flex flex-wrap justify-end items-center gap-4">
       <Button onClick={handleModalOpen}>PDF</Button>

@@ -45,6 +45,21 @@ const ToolsAddedTimeline = () => (
           </Link>
         </Timeline.Content>
       </Timeline.Item>
+      <Timeline.Item>
+        <Timeline.Content>
+          <Timeline.Time>Maj 2023</Timeline.Time>
+          <Timeline.Title>Sevanje</Timeline.Title>
+          <Timeline.Body>
+            Dodali novo orodje za informativni prikaz sevanja na območju.
+          </Timeline.Body>
+          <Link href="/orodja/sevanje">
+            <Button color="gray">
+              Odpri orodje
+              <HiArrowNarrowRight className="ml-2 h-3 w-3" />
+            </Button>
+          </Link>
+        </Timeline.Content>
+      </Timeline.Item>
     </Timeline>
   </Card>
 );
