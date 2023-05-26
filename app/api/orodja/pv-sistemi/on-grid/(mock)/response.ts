@@ -1,4 +1,4 @@
-import { OnGridApiResponse } from "./route";
+import { OnGridApiResponse } from "../route";
 
 const MockData: OnGridApiResponse = {
   inputs: {
