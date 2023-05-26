@@ -3,7 +3,7 @@
 import InfoCard from "@/components/Results/InfoCard";
 import { ApiContext } from "@/services/context";
 import { useContext } from "react";
-import { SevanjeApiResponse } from "@/app/api/orodja/sevanje/route";
+import type { SevanjeApiResponse } from "@/app/api/orodja/sevanje/(utils)/types";
 
 const createDataPoint = (
   d: SevanjeApiResponse,

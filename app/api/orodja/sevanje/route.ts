@@ -1,40 +1,6 @@
 import { NextResponse } from "next/server";
-
-export interface SevanjeApiBody {
-  lat: number;
-  lon: number;
-  raddatabase: string;
-  startyear: string;
-  endyear: string;
-  horirrad: boolean;
-  optrad: boolean;
-  mr_dni: boolean;
-  avtemp: boolean;
-}
-
-export interface SevanjeApiResponse {
-  inputs: {};
-  outputs: {};
-  meta: {};
-}
-
-const readBodyValueOrThrow = (body: SevanjeApiBody) => {
-  const requiredKeys = [
-    "lat",
-    "lon",
-    "raddatabase",
-    "startyear",
-    "endyear",
-    "horirrad",
-    "optrad",
-    "mr_dni",
-    "avtemp",
-  ];
-  const missingKeys = requiredKeys.filter((key) => !(key in body));
-  if (missingKeys.length > 0) {
-    throw new Error(`Missing values: ${missingKeys.join(", ")}`);
-  }
-};
+import { SevanjeApiBody, SevanjeApiResponse } from "./(utils)/types";
+import { readBodyValueOrThrow } from "./(utils)/validators";
 
 const createResponse = (content: any, status: number = 200) => {
   return new NextResponse(JSON.stringify(content), {

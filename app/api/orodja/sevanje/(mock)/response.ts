@@ -1,4 +1,4 @@
-import { SevanjeApiResponse } from "./route";
+import { SevanjeApiResponse } from "../(utils)/types";
 
 const MockData: SevanjeApiResponse = {
   inputs: {

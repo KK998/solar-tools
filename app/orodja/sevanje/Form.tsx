@@ -6,10 +6,10 @@ import { LocationContext } from "@/components/Location/context";
 import FormBuilder, { Field } from "@/components/Presentation/FormBuilder";
 
 import { ApiDispatchContext } from "@/services/context";
-import {
+import type {
   SevanjeApiBody,
   SevanjeApiResponse,
-} from "@/app/api/orodja/sevanje/route";
+} from "@/app/api/orodja/sevanje/(utils)/types";
 
 interface FormField extends Field {
   name: keyof SevanjeApiBody;

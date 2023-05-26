@@ -16,7 +16,7 @@ const ApiProvider = ({ children }: any) => {
 // api response mocks
 import OffGridMockData from "@/app/api/orodja/pv-sistemi/off-grid/route.mock";
 import OnGridMockData from "@/app/api/orodja/pv-sistemi/on-grid/route.mock";
-import SevanjeMockData from "@/app/api/orodja/sevanje/route.mock";
+import SevanjeMockData from "@/app/api/orodja/sevanje/(mock)/response";
 
 const mock = {
   offGrid: OffGridMockData,
