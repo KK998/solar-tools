@@ -32,7 +32,7 @@ const TestTableRender = ({
   });
 };
 
-describe("Print", () => {
+describe("Print Sections", () => {
   TestTableRender({
     testName: "On Grid",
     Component: <OnGridPrint />,
