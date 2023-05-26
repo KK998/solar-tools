@@ -12,7 +12,7 @@ import { createPortal } from "react-dom";
 import Print from "./Print";
 import { ApiContext } from "@/services/context";
 
-function downloadObjectAsJson(exportObj: any, exportName: string) {
+export function downloadObjectAsJson(exportObj: any, exportName: string) {
   var dataStr =
     "data:text/json;charset=utf-8," +
     encodeURIComponent(JSON.stringify(exportObj));
@@ -29,7 +29,7 @@ const ActionRow = ({
 }: {
   printRef: React.RefObject<HTMLDivElement>;
 }) => {
-  const { offGrid, onGrid } = useContext(ApiContext);
+  const { offGrid, onGrid, sevanje } = useContext(ApiContext);
   const [showModal, setShowModal] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
 
@@ -87,9 +87,12 @@ const ActionRow = ({
     if (onGrid) {
       downloadObjectAsJson(onGrid, "on-grid");
     }
-  }, [offGrid, onGrid]);
+    if (sevanje) {
+      downloadObjectAsJson(sevanje, "sevanje");
+    }
+  }, [offGrid, onGrid, sevanje]);
 
-  if (!offGrid && !onGrid) {
+  if (!offGrid && !onGrid && !sevanje) {
     return null;
   }
 

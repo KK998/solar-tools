@@ -52,15 +52,13 @@ export interface OffGridApiResponse {
     };
   };
   outputs: {
-    monthly: [
-      {
-        month: number;
-        E_d: number;
-        E_lost_d: number;
-        f_f: number;
-        f_e: number;
-      }
-    ];
+    monthly: {
+      month: number;
+      E_d: number;
+      E_lost_d: number;
+      f_f: number;
+      f_e: number;
+    }[];
     totals: {
       d_total: number;
       f_f: number;

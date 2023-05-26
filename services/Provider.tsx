@@ -13,4 +13,23 @@ const ApiProvider = ({ children }: any) => {
   );
 };
 
-export { ApiProvider };
+// api response mocks
+import OffGridMockData from "@/app/api/orodja/pv-sistemi/off-grid/route.mock";
+import OnGridMockData from "@/app/api/orodja/pv-sistemi/on-grid/route.mock";
+import SevanjeMockData from "@/app/api/orodja/sevanje/route.mock";
+
+const mock = {
+  offGrid: OffGridMockData,
+  onGrid: OnGridMockData,
+  sevanje: SevanjeMockData,
+};
+
+type MockApiProviderProps = {
+  children: React.ReactNode;
+};
+
+const MockApiProvider = ({ children }: MockApiProviderProps) => {
+  return <ApiContext.Provider value={mock}>{children}</ApiContext.Provider>;
+};
+
+export { ApiProvider, MockApiProvider };

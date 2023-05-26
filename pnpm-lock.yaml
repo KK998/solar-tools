@@ -69,6 +69,9 @@ devDependencies:
   "@testing-library/user-event":
     specifier: ^14.4.3
     version: 14.4.3(@testing-library/dom@9.3.0)
+  "@types/jest":
+    specifier: ^29.5.1
+    version: 29.5.1
   "@types/leaflet":
     specifier: ^1.9.3
     version: 1.9.3

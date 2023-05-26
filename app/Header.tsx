@@ -9,7 +9,7 @@ const Header = () => {
   const { mainPageUrl, logo, name } = useContext(ConfigContext);
 
   return (
-    <Navbar fluid className="sticky top-0 z-50 shadow">
+    <Navbar data-testid="Navigation" fluid className="sticky top-0 z-50 shadow">
       <Navbar.Brand href={mainPageUrl}>
         <div className="mr-3 w-6 h-6 sm:h-9 relative">
           <Image

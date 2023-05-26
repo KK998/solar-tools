@@ -59,7 +59,7 @@ const Map = () => {
   );
 
   return (
-    <div className="w-full">
+    <div data-testid="Map" className="w-full">
       <div className="w-full rounded overflow-hidden shadow">
         <MapContainer
           scrollWheelZoom
@@ -89,7 +89,7 @@ const Map = () => {
           name="location"
           type="text"
         />
-        <Button type="submit">
+        <Button data-testid="MapSearch" type="submit">
           {isLoading && (
             <Spinner
               size="sm"
