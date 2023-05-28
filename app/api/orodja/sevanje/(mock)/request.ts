@@ -3,13 +3,13 @@ export type MockBodyOptionalLat = Omit<typeof mockBody, "lat"> & {
 };
 
 export const mockBody = {
-  lat: 1,
-  lon: 1,
-  raddatabase: "1",
-  startyear: "1",
-  endyear: "1",
+  lat: 45.813,
+  lon: 14.319,
+  raddatabase: "PVGIS-SARAH2",
+  startyear: "2005",
+  endyear: "2020",
   horirrad: true,
-  optrad: true,
-  mr_dni: true,
-  avtemp: true,
+  optrad: false,
+  mr_dni: false,
+  avtemp: false,
 };
