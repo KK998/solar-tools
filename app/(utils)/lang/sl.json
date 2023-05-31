@@ -1,0 +1,11 @@
+{
+  "home": "Domov",
+  "nav_on_grid_pv": "PV v omrežju",
+  "nav_off_grid_pv": "PV izven omrežja",
+  "nav_solar_radiation": "Sončno sevanje",
+  "changelog_title": "Zgodovina sprememb",
+  "changelog_content_one": "Dodali novo stran za informativni izračun pv sistemov, ki niso priklopljeni na omrežje.",
+  "changelog_content_two": "Dodali novo stran za informativni izračun pv sistemov, ki so priklopljeni na omrežje.",
+  "changelog_content_three": "Dodali novo stran za informativni prikaz sončnega sevanja.",
+  "open_tool": "Odpri orodje"
+}

@@ -13,6 +13,9 @@ dependencies:
   chart.js:
     specifier: ^4.3.0
     version: 4.3.0
+  dayjs:
+    specifier: ^1.11.7
+    version: 1.11.7
   eslint:
     specifier: 8.40.0
     version: 8.40.0
@@ -2640,6 +2643,13 @@ packages:
       whatwg-mimetype: 3.0.0
       whatwg-url: 11.0.0
     dev: true
+
+  /dayjs@1.11.7:
+    resolution:
+      {
+        integrity: sha512-+Yw9U6YO5TQohxLcIkrXBeY73WP3ejHWVvx8XCk3gxvQDCTEmS48ZrSZCKciI7Bhl/uCMyxYtE9UqRILmFphkQ==,
+      }
+    dev: false
 
   /debounce@1.2.1:
     resolution:
