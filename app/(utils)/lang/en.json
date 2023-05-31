@@ -5,9 +5,10 @@
   "nav_solar_radiation": "Solar Radiation",
   "nav_manual": "Manual",
   "changelog_title": "Changelog",
-  "changelog_content_one": "Added a new page for off grid pv systems.",
-  "changelog_content_two": "Added a new page for on grid pv systems.",
-  "changelog_content_three": "Added a new page for solar radiation.",
+  "changelog_content_1": "Added a new page for off grid pv systems.",
+  "changelog_content_2": "Added a new page for on grid pv systems.",
+  "changelog_content_3": "Added a new page for solar radiation.",
+  "changelog_content_4": "Added Slovenian and English translations for branded sites.",
   "open_tool": "Open Tool",
   "search": "Search",
   "calculations_loading": "Calculations are loading...",
@@ -15,5 +16,6 @@
   "modal_close": "Close",
   "modal_pdf_download": "Download PDF",
   "form_builder_title": "Enter your parameters",
-  "form_builder_calculate": "Calculate"
+  "form_builder_calculate": "Calculate",
+  "translations": "Translations"
 }

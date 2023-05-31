@@ -10,23 +10,29 @@ const ToolsAddedTimeline = () => (
     <Timeline>
       <TimelineItem
         title="nav_off_grid_pv"
-        body="changelog_content_one"
+        body="changelog_content_1"
         link="/orodja/pv-sistemi/off-grid-pv"
         time="5.10.2023"
       />
       <Timeline.Point />
       <TimelineItem
         title="nav_on_grid_pv"
-        body="changelog_content_two"
+        body="changelog_content_2"
         link="/orodja/pv-sistemi/on-grid-pv"
         time="5.12.2023"
       />
       <Timeline.Point />
       <TimelineItem
         title="nav_solar_radiation"
-        body="changelog_content_three"
+        body="changelog_content_3"
         link="/orodja/sevanje"
         time="5.22.2023"
+      />
+      <Timeline.Point />
+      <TimelineItem
+        title="translations"
+        body="changelog_content_4"
+        time="5.31.2023"
       />
     </Timeline>
   </Card>
