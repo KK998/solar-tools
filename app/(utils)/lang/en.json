@@ -3,6 +3,7 @@
   "nav_on_grid_pv": "On Grid PV",
   "nav_off_grid_pv": "Off Grid PV",
   "nav_solar_radiation": "Solar Radiation",
+  "nav_manual": "Manual",
   "changelog_title": "Changelog",
   "changelog_content_one": "Added a new page for off grid pv systems.",
   "changelog_content_two": "Added a new page for on grid pv systems.",

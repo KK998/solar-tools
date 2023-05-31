@@ -9,7 +9,6 @@ const inter = Inter({ subsets: ["latin"] });
 
 import "./globals.css";
 import "react-toastify/dist/ReactToastify.css";
-import { Flowbite } from "flowbite-react";
 
 export default function RootLayout({
   children,
@@ -17,17 +16,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <Flowbite>
-      <html lang="sl">
-        <body
-          className={`${inter.className} dark:bg-slate-700 dark:text-white min-h-[100vh] flex flex-col`}
-        >
-          <Header />
-          {children}
-          <Footer />
-          <ToastContainer />
-        </body>
-      </html>
-    </Flowbite>
+    <html className="dark" lang="sl">
+      <body
+        className={`${inter.className} dark:bg-slate-700 dark:text-white min-h-[100vh] flex flex-col`}
+      >
+        <Header />
+        {children}
+        <Footer />
+        <ToastContainer />
+      </body>
+    </html>
   );
 }

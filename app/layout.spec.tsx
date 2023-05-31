@@ -38,7 +38,7 @@ describe("Layout", () => {
   describe("Footer", () => {
     test("Has link to manual", () => {
       const { unmount } = render(<Footer />);
-      const manualLink = screen.getByRole("link", { name: "Navodila" });
+      const manualLink = screen.getByRole("link", { name: "manual-link" });
 
       expect(manualLink).toBeInTheDocument();
 
