@@ -40,6 +40,7 @@ export const formFields: FormField[] = [
     name: "horirrad",
     label: "Global horizontal irradiation [kWh/m²]",
     type: "boolean",
+    checked: true,
   },
   {
     name: "optrad",
@@ -86,10 +87,10 @@ const Form = () => {
         raddatabase: data.get("raddatabase") as string,
         startyear: data.get("startyear") as string,
         endyear: data.get("endyear") as string,
-        horirrad: !!data.get("horirrad") as boolean,
-        optrad: !!data.get("optrad") as boolean,
-        mr_dni: !!data.get("mr_dni") as boolean,
-        avtemp: !!data.get("avtemp") as boolean,
+        horirrad: data.get("horirrad") === "1",
+        optrad: data.get("optrad") === "1",
+        mr_dni: data.get("mr_dni") === "1",
+        avtemp: data.get("avtemp") === "1",
       })
         .then((data) => {
           if (dispatch) {

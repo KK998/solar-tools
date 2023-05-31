@@ -15,10 +15,11 @@ export interface Field {
   label: string;
   type: "number" | "select" | "boolean";
   options?: string[];
+  checked?: boolean;
 }
 
 const FormToggle = ({ field }: { field: Field }) => {
-  const [isChecked, setIsChecked] = useState(false);
+  const [isChecked, setIsChecked] = useState(field.checked || false);
   const toggleChecked = useCallback(() => setIsChecked((p) => !p), []);
 
   return (

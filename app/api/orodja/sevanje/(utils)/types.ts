@@ -12,6 +12,15 @@ export interface SevanjeApiBody {
 
 export interface SevanjeApiResponse {
   inputs: {};
-  outputs: {};
+  outputs: {
+    monthly: {
+      year: number;
+      month: number;
+      "H(h)_m": number;
+      "H(i_opt)_m": number;
+      "Hb(n)_m": number;
+      T2m: number;
+    }[];
+  };
   meta: {};
 }

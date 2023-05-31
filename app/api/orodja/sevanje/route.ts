@@ -24,10 +24,11 @@ export async function POST(request: Request) {
 
     url.searchParams.set("startyear", body.startyear.toString());
     url.searchParams.set("endyear", body.endyear.toString());
-    url.searchParams.set("horirrad", body.horirrad.toString());
-    url.searchParams.set("optrad", body.optrad.toString());
-    url.searchParams.set("mr_dni", body.mr_dni.toString());
-    url.searchParams.set("avtemp", body.avtemp.toString());
+
+    url.searchParams.set("horirrad", body.horirrad ? "1" : "0");
+    url.searchParams.set("optrad", body.optrad ? "1" : "0");
+    url.searchParams.set("mr_dni", body.mr_dni ? "1" : "0");
+    url.searchParams.set("avtemp", body.avtemp ? "1" : "0");
 
     const res = await fetch(url, {
       headers: {
