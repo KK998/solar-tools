@@ -19,7 +19,7 @@ export default function Component() {
       <div className="w-full text-center">
         <div className="w-full justify-between sm:flex sm:items-center sm:justify-between">
           <Footer.Brand name={name} href={mainPageUrl} src={logo} alt="Logo" />
-          <Footer.LinkGroup className="gap-5 items-center">
+          <Footer.LinkGroup className="gap-5 items-center justify-between">
             <Footer.Link role="link" aria-label="manual-link" href="/navodila">
               {t("nav_manual")}
             </Footer.Link>

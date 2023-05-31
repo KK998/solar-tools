@@ -1,6 +1,6 @@
 "use client";
 
-import { Button } from "flowbite-react";
+import { Button, ButtonProps } from "flowbite-react";
 import { useCallback, useEffect, useState } from "react";
 
 const checkHtmlThemeClass = () => {
@@ -11,7 +11,7 @@ const checkHtmlThemeClass = () => {
   return "dark";
 };
 
-const ThemeToggler = () => {
+const ThemeToggler = ({ ...props }: ButtonProps) => {
   const [theme, setTheme] = useState<"dark" | "light">(checkHtmlThemeClass);
 
   useEffect(() => {
@@ -29,7 +29,12 @@ const ThemeToggler = () => {
   }, []);
 
   return (
-    <Button onClick={handleThemeChange} color="primary" role="button">
+    <Button
+      onClick={handleThemeChange}
+      color="primary"
+      role="button"
+      {...props}
+    >
       {theme === "dark" ? "🌞" : "🌙"}
     </Button>
   );
