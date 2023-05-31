@@ -4,6 +4,8 @@ import { Button, ButtonProps } from "flowbite-react";
 import { useCallback, useEffect, useState } from "react";
 
 const checkHtmlThemeClass = () => {
+  if (typeof localStorage === "undefined") return "dark";
+
   const localStorageTheme = localStorage.getItem("theme");
   if (localStorageTheme) {
     return localStorageTheme as "dark" | "light";

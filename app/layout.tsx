@@ -5,7 +5,10 @@ import { ToastContainer } from "react-toastify";
 import Footer from "@/app/(components)/Footer";
 import Header from "@/app/(components)/Header";
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({
+  subsets: ["latin"],
+  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
+});
 
 import "./globals.css";
 import "react-toastify/dist/ReactToastify.css";
