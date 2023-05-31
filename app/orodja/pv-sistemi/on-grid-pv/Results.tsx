@@ -1,8 +1,9 @@
+"use client";
+
 import InfoCard from "@/app/(components)/Results/InfoCard";
-import { ApiContext } from "@/app/(services)/context";
-import { useContext } from "react";
 import { OnGridApiResponse } from "@/app/api/orodja/pv-sistemi/on-grid/route";
 import { OnGridApiKeys } from "@/app/(utils)/constants";
+import { useApi } from "@/app/(services)/useApi";
 
 const createDataPoint = (
   d: OnGridApiResponse,
@@ -13,7 +14,7 @@ const createDataPoint = (
 });
 
 const Results = () => {
-  const { onGrid } = useContext(ApiContext);
+  const { onGrid } = useApi();
 
   if (onGrid === undefined) return null;
 

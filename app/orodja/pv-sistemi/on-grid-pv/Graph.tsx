@@ -2,9 +2,9 @@
 
 import { Card, Tabs } from "flowbite-react";
 import Chart from "@/app/(components)/Presentation/Chart";
-import { OnGridApiResponse } from "@/app/api/orodja/pv-sistemi/on-grid/route";
 import { ErrorBoundary } from "react-error-boundary";
 import { OnGridApiKeys } from "@/app/(utils)/constants";
+import { useApi } from "@/app/(services)/useApi";
 
 const monthMapping = {
   1: "Januar",
@@ -23,7 +23,10 @@ const monthMapping = {
 
 type Month = keyof typeof monthMapping;
 
-const Graph = ({ data }: { data: OnGridApiResponse }) => {
+const Graph = () => {
+  const { onGrid: data } = useApi();
+
+  if (data === undefined) return null;
   return (
     <Card
       className="flex-grow"
