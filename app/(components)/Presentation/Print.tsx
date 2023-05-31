@@ -83,7 +83,7 @@ export const SevanjePrint = () => {
           <Table.HeadCell>3</Table.HeadCell>
           <Table.HeadCell>4</Table.HeadCell>
         </Table.Head>
-        <Table.Body>{JSON.stringify(sevanje.outputs)}</Table.Body>
+        <Table.Body></Table.Body>
       </Table>
       <br />
     </>
