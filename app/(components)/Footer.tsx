@@ -1,6 +1,6 @@
 "use client";
 
-import { Footer } from "flowbite-react";
+import { DarkThemeToggle, Footer } from "flowbite-react";
 import { useContext } from "react";
 import { ConfigContext } from "../(utils)/config";
 
@@ -17,8 +17,9 @@ export default function Component() {
       <div className="w-full text-center">
         <div className="w-full justify-between sm:flex sm:items-center sm:justify-between">
           <Footer.Brand name={name} href={mainPageUrl} src={logo} alt="Logo" />
-          <Footer.LinkGroup className="gap-5">
+          <Footer.LinkGroup className="gap-5 items-center">
             <Footer.Link href="/navodila">Navodila</Footer.Link>
+            <DarkThemeToggle />
           </Footer.LinkGroup>
         </div>
         <Footer.Divider />
