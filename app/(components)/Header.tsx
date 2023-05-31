@@ -4,6 +4,7 @@ import { useContext } from "react";
 import Image from "next/image";
 import { Navbar } from "flowbite-react";
 import { ConfigContext } from "../(utils)/config";
+import t from "../(utils)/translate";
 
 const Header = () => {
   const { mainPageUrl, logo, name } = useContext(ConfigContext);
@@ -28,14 +29,16 @@ const Header = () => {
         <Navbar.Toggle />
       </div>
       <Navbar.Collapse>
-        <Navbar.Link href="/">Domov</Navbar.Link>
+        <Navbar.Link href="/">{t("home")}</Navbar.Link>
         <Navbar.Link href="/orodja/pv-sistemi/on-grid-pv">
-          On-Grid PV
+          {t("nav_on_grid_pv")}
         </Navbar.Link>
         <Navbar.Link href="/orodja/pv-sistemi/off-grid-pv">
-          Off-Grid PV
+          {t("nav_off_grid_pv")}
         </Navbar.Link>
-        <Navbar.Link href="/orodja/sevanje">Solar radiation</Navbar.Link>
+        <Navbar.Link href="/orodja/sevanje">
+          {t("nav_solar_radiation")}
+        </Navbar.Link>
       </Navbar.Collapse>
     </Navbar>
   );
