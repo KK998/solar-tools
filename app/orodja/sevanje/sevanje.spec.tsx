@@ -22,7 +22,7 @@ describe("Form", () => {
   test("Can submit form", async () => {
     const { unmount } = render(<Form />);
 
-    const button = await screen.findByRole("button", { name: "Izračunaj" });
+    const button = await screen.findByRole("button", { name: "calculate" });
     fireEvent.click(button);
 
     unmount();

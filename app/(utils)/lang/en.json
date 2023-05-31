@@ -10,5 +10,10 @@
   "changelog_content_three": "Added a new page for solar radiation.",
   "open_tool": "Open Tool",
   "search": "Search",
-  "calculations_loading": "Calculations are loading..."
+  "calculations_loading": "Calculations are loading...",
+  "modal_pdf_title": "Content for PDF",
+  "modal_close": "Close",
+  "modal_pdf_download": "Download PDF",
+  "form_builder_title": "Enter your parameters",
+  "form_builder_calculate": "Calculate"
 }

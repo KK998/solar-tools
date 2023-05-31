@@ -1,3 +1,4 @@
+import t from "@/app/(utils)/translate";
 import {
   Button,
   Card,
@@ -82,7 +83,7 @@ const Form = ({ handleFormSubmit, formFields, isLoading }: FormProps) => {
   return (
     <Card className="flex-grow">
       <h5 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-        Vnesite podatke
+        {t("form_builder_title")}
       </h5>
       <form
         onSubmit={handleFormSubmit}
@@ -91,7 +92,12 @@ const Form = ({ handleFormSubmit, formFields, isLoading }: FormProps) => {
         {formFields.map((field: Field) => (
           <FormField key={field.name} field={field} />
         ))}
-        <Button type="submit" className="mt-auto">
+        <Button
+          role="button"
+          aria-label="calculate"
+          type="submit"
+          className="mt-auto"
+        >
           {isLoading && (
             <Spinner
               size="sm"
@@ -99,7 +105,7 @@ const Form = ({ handleFormSubmit, formFields, isLoading }: FormProps) => {
               aria-label="Izračuni se nalagajo..."
             />
           )}
-          Izračunaj
+          {t("form_builder_calculate")}
         </Button>
       </form>
     </Card>
