@@ -8,5 +8,7 @@
   "changelog_content_one": "Added a new page for off grid pv systems.",
   "changelog_content_two": "Added a new page for on grid pv systems.",
   "changelog_content_three": "Added a new page for solar radiation.",
-  "open_tool": "Open Tool"
+  "open_tool": "Open Tool",
+  "search": "Search",
+  "calculations_loading": "Calculations are loading..."
 }

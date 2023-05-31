@@ -11,6 +11,7 @@ import { LocationContext, LocationDispatchContext } from "./context";
 import "leaflet/dist/leaflet.css";
 import { Button, Spinner, TextInput } from "flowbite-react";
 import useCurrentPosition from "./useCurrentPosition";
+import t from "@/app/(utils)/translate";
 
 const MapView = () => {
   const { marker } = useContext(LocationContext);
@@ -94,10 +95,10 @@ const Map = () => {
             <Spinner
               size="sm"
               className="mr-1"
-              aria-label="Izračuni se nalagajo..."
+              aria-label={t("calculations_loading")}
             />
           )}
-          Išči
+          {t("search")}
         </Button>
       </form>
     </div>
