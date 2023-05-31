@@ -11,6 +11,7 @@ import {
 import { createPortal } from "react-dom";
 import Print from "./Print";
 import { ApiContext } from "@/app/(services)/context";
+import t from "@/app/(utils)/translate";
 
 export function downloadObjectAsJson(exportObj: any, exportName: string) {
   var dataStr =
@@ -82,13 +83,13 @@ const ActionRow = ({
 
   const handleGetJSON = useCallback(() => {
     if (offGrid) {
-      downloadObjectAsJson(offGrid, "off-grid");
+      downloadObjectAsJson(offGrid, t("nav_off_grid_pv"));
     }
     if (onGrid) {
-      downloadObjectAsJson(onGrid, "on-grid");
+      downloadObjectAsJson(onGrid, t("nav_on_grid_pv"));
     }
     if (sevanje) {
-      downloadObjectAsJson(sevanje, "sevanje");
+      downloadObjectAsJson(sevanje, t("nav_solar_radiation"));
     }
   }, [offGrid, onGrid, sevanje]);
 
@@ -108,7 +109,7 @@ const ActionRow = ({
             show={showModal}
             onClose={handleModalClose}
           >
-            <Modal.Header>Vsebina za PDF</Modal.Header>
+            <Modal.Header>{t("modal_pdf_title")}</Modal.Header>
             <Modal.Body>
               <div ref={ref}>
                 <Print images={images} />
@@ -116,10 +117,10 @@ const ActionRow = ({
             </Modal.Body>
             <Modal.Footer>
               <Button color="failure" onClick={handleModalClose}>
-                Zapri
+                {t("modal_close")}
               </Button>
               <Button color="success" onClick={handlePDFSave}>
-                Shrani v PDF
+                {t("modal_pdf_download")}
               </Button>
             </Modal.Footer>
           </Modal>,
