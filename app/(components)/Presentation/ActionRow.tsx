@@ -10,7 +10,7 @@ import {
 } from "react";
 import { createPortal } from "react-dom";
 import Print from "./Print";
-import { ApiContext } from "@/services/context";
+import { ApiContext } from "@/app/(services)/context";
 
 export function downloadObjectAsJson(exportObj: any, exportName: string) {
   var dataStr =

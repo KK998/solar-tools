@@ -1,6 +1,6 @@
 import { Card, Tabs } from "flowbite-react";
 import { OffGridApiResponse } from "@/app/api/orodja/pv-sistemi/off-grid/route";
-import Chart from "@/components/Presentation/Chart";
+import Chart from "@/app/(components)/Presentation/Chart";
 
 const monthMapping = {
   1: "Januar",

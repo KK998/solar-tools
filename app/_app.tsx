@@ -1,7 +1,7 @@
 import type { AppProps } from "next/app";
 import NextNProgress from "nextjs-progressbar";
 import colors from "tailwindcss/colors";
-import { ConfigContext, siteConfig } from "./config";
+import { ConfigContext, siteConfig } from "./(utils)/config";
 
 export default function MyApp({ Component, pageProps }: AppProps) {
   return (

@@ -7,9 +7,11 @@ import {
   OffGridApiResponse,
 } from "@/app/api/orodja/pv-sistemi/off-grid/route";
 
-import { LocationContext } from "@/components/Location/context";
-import FormBuilder, { Field } from "@/components/Presentation/FormBuilder";
-import { ApiDispatchContext } from "@/services/context";
+import { LocationContext } from "@/app/(components)/Location/context";
+import FormBuilder, {
+  Field,
+} from "@/app/(components)/Presentation/FormBuilder";
+import { ApiDispatchContext } from "@/app/(services)/context";
 
 interface FormNames {
   solarRadiationDatabase: string;

@@ -1,5 +1,5 @@
 import { screen, cleanup, render } from "@testing-library/react";
-import { MockApiProvider } from "@/services/Provider";
+import { MockApiProvider } from "@/app/(services)/Provider";
 
 import { OffGridPrint, OnGridPrint, SevanjePrint } from "./Print";
 

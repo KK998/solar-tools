@@ -35,3 +35,20 @@ body {
   user-select: none;
   z-index: 41 !important;
 }
+
+[data-testid="flowbite-toggleswitch-label"] {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  max-width: 100%;
+}
+
+[data-testid="flowbite-card"] {
+  max-width: 100%;
+}
+
+@media screen and (max-width: 500px) {
+  [data-testid="flowbite-toggleswitch-label"] {
+    max-width: 180px;
+  }
+}

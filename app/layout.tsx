@@ -2,8 +2,8 @@
 import { Inter } from "next/font/google";
 import { ToastContainer } from "react-toastify";
 
-import Footer from "@/app/Footer";
-import Header from "@/app/Header";
+import Footer from "@/app/(components)/Footer";
+import Header from "@/app/(components)/Header";
 
 const inter = Inter({ subsets: ["latin"] });
 

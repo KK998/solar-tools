@@ -1,4 +1,4 @@
-import { useApi } from "@/services/useApi";
+import { useApi } from "@/app/(services)/useApi";
 import { Table } from "flowbite-react";
 import React, { ReactElement } from "react";
 

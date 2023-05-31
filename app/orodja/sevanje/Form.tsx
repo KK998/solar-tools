@@ -2,10 +2,12 @@
 import { useCallback, useContext, useState } from "react";
 import { toast } from "react-toastify";
 
-import { LocationContext } from "@/components/Location/context";
-import FormBuilder, { Field } from "@/components/Presentation/FormBuilder";
+import { LocationContext } from "@/app/(components)/Location/context";
+import FormBuilder, {
+  Field,
+} from "@/app/(components)/Presentation/FormBuilder";
 
-import { ApiDispatchContext } from "@/services/context";
+import { ApiDispatchContext } from "@/app/(services)/context";
 import type {
   SevanjeApiBody,
   SevanjeApiResponse,

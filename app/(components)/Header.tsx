@@ -1,9 +1,9 @@
 "use client";
 
-import React, { useContext } from "react";
+import { useContext } from "react";
 import Image from "next/image";
 import { Navbar } from "flowbite-react";
-import { ConfigContext } from "./config";
+import { ConfigContext } from "../(utils)/config";
 
 const Header = () => {
   const { mainPageUrl, logo, name } = useContext(ConfigContext);

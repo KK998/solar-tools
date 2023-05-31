@@ -1,10 +1,10 @@
 "use client";
 
-import { ApiContext } from "@/services/context";
+import { ApiContext } from "@/app/(services)/context";
 import dynamic from "next/dynamic";
 import { useContext, useMemo } from "react";
 
-const Map = dynamic(() => import("@/components/Location/Map"), {
+const Map = dynamic(() => import("@/app/(components)/Location/Map"), {
   ssr: false,
 });
 

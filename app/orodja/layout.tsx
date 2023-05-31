@@ -2,10 +2,10 @@
 
 import { useRef } from "react";
 
-import ActionRow from "@/components/Presentation/ActionRow";
+import ActionRow from "@/app/(components)/Presentation/ActionRow";
+import { withLocation } from "@/app/(components)/Location/withLocation";
 
-import { withLocation } from "@/components/Location/withLocation";
-import { withApi } from "@/services/withApi";
+import { withApi } from "@/app/(services)/withApi";
 
 const Layout = ({ children }: { children: React.ReactNode }) => {
   const printRef = useRef<HTMLDivElement>(null);

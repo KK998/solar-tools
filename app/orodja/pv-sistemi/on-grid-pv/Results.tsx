@@ -1,8 +1,9 @@
-import InfoCard from "@/components/Results/InfoCard";
-import { ApiContext } from "@/services/context";
+import InfoCard from "@/app/(components)/Results/InfoCard";
+import { ApiContext } from "@/app/(services)/context";
 import { useContext } from "react";
 import { OnGridApiResponse } from "@/app/api/orodja/pv-sistemi/on-grid/route";
-import { OnGridApiKeys } from "@/app/constants";
+import { OnGridApiKeys } from "@/app/(utils)/constants";
+
 const createDataPoint = (
   d: OnGridApiResponse,
   key: keyof OnGridApiResponse["outputs"]["totals"]["fixed"]

@@ -2,7 +2,7 @@
 
 import { Footer } from "flowbite-react";
 import { useContext } from "react";
-import { ConfigContext } from "./config";
+import { ConfigContext } from "../(utils)/config";
 
 export default function Component() {
   const { logo, name, mainPageUrl } = useContext(ConfigContext);

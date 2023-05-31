@@ -1,10 +1,10 @@
 "use client";
 
 import { Card, Tabs } from "flowbite-react";
-import Chart from "@/components/Presentation/Chart";
+import Chart from "@/app/(components)/Presentation/Chart";
 import { OnGridApiResponse } from "@/app/api/orodja/pv-sistemi/on-grid/route";
 import { ErrorBoundary } from "react-error-boundary";
-import { OnGridApiKeys } from "@/app/constants";
+import { OnGridApiKeys } from "@/app/(utils)/constants";
 
 const monthMapping = {
   1: "Januar",
