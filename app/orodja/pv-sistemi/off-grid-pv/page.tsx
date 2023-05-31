@@ -1,7 +1,4 @@
-"use client";
-import { useContext, useMemo } from "react";
 import dynamic from "next/dynamic";
-import { ApiContext } from "@/app/(services)/context";
 
 const Map = dynamic(() => import("@/app/(components)/Location/Map"), {
   ssr: false,
@@ -20,18 +17,12 @@ const Graph = dynamic(() => import("./Graph"), {
 });
 
 const Page = () => {
-  const { offGrid } = useContext(ApiContext);
-
-  const graphData = useMemo(() => {
-    return offGrid;
-  }, [offGrid]);
-
   return (
     <>
       <Map />
       <Form />
-      {graphData && <Results />}
-      {graphData && <Graph data={graphData} />}
+      <Results />
+      <Graph />
     </>
   );
 };

@@ -1,6 +1,8 @@
+"use client";
+
 import { Card, Tabs } from "flowbite-react";
-import { OffGridApiResponse } from "@/app/api/orodja/pv-sistemi/off-grid/route";
 import Chart from "@/app/(components)/Presentation/Chart";
+import { useApi } from "@/app/(services)/useApi";
 
 const monthMapping = {
   1: "Januar",
@@ -19,7 +21,9 @@ const monthMapping = {
 
 type Month = keyof typeof monthMapping;
 
-const Graph = ({ data }: { data: OffGridApiResponse }) => {
+const Graph = () => {
+  const { offGrid: data } = useApi();
+  if (data === undefined) return null;
   return (
     <Card className="flex-grow">
       <Tabs.Group>

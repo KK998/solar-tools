@@ -1,15 +1,11 @@
-import { useContext } from "react";
+"use client";
+
 import InfoCard from "@/app/(components)/Results/InfoCard";
-import { ApiContext } from "@/app/(services)/context";
+import { useApi } from "@/app/(services)/useApi";
 
 const Results = () => {
-  const { offGrid } = useContext(ApiContext);
-
+  const { offGrid } = useApi();
   if (offGrid === undefined) return null;
-  /* const history = offGrid.outputs.histogram.map((v) => ({
-    name: "Banan",
-    value: String(v.CS_max),
-  })); */
 
   return (
     <InfoCard
